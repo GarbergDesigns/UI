@@ -1,7 +1,7 @@
 {
-  "name": "ui",
+  "name": "@garbergdesigns/ui",
   "version": "1.0.0",
-  "description": "",
+  "description": "Garberg Designs UI Design System",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "type": "module",

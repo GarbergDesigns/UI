@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 // @ts-ignore
-import ButtonStyles from "./Button.module.css";
+//import ButtonStyles from "./Button.module.css";
 
 const sizeClassNames = {
   small: "",

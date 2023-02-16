@@ -4,6 +4,7 @@
   "description": "Garberg Designs UI Design System",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "private": false,
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,6 +25,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/GarbergDesigns/UI#readme",
   "devDependencies": {
     "@babel/core": "^7.20.12",

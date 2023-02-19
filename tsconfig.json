@@ -1,13 +1,13 @@
 {
-  "compilerOptions": {
-    "target": "es2016",
-    "module": "es6",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "jsx": "react",
-    "moduleResolution": "node",
-    "outDir": "./dist"
-  }
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "es6",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "outDir": "./dist"
+    }
 }

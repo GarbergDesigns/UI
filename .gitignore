@@ -249,3 +249,5 @@ sketch
 storybook-static/
 
 # End of https://www.toptal.com/developers/gitignore/api/node,storybookjs,react,jetbrains+all
+
+package-lock.json

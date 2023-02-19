@@ -4,6 +4,11 @@ import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import { terser } from "rollup-plugin-terser";
 import commonjs from '@rollup/plugin-commonjs'
+import postcss from 'rollup-plugin-postcss-modules'
+import del from 'rollup-plugin-delete'
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+
 
 export default [
     {
@@ -26,13 +31,27 @@ export default [
                 babelHelpers: "runtime",
             }),
             commonjs({
-              ignoreGlobal: false,
-              include: 'node_modules/**',
+                ignoreGlobal: false,
+                include: 'node_modules/**',
+            }),
+            postcss({
+                plugins: [
+                    require('postcss-import'),
+                    require('tailwindcss'),
+                    require('autoprefixer'),
+                ],
+                minimize: true,
+                sourceMap: false,
+                minimize: true,
+                modules: {
+                    generateScopedName: '[local]',
+                },
             }),
             external(),
             resolve(),
             typescript(),
             terser(),
+            del({ targets: ['dist/*'] }),
         ],
     },
 ];

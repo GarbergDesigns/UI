@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 // @ts-ignore
-//import ButtonStyles from "./Button.module.css";
+import ButtonStyles from "./Button.module.css";
 
 const sizeClassNames = {
   small: "",
@@ -8,10 +8,10 @@ const sizeClassNames = {
   large: "",
 };
 
-const colourClassNames = {
+const variantClassNames = {
   primary: "",
   secondary: "",
-  transparent: "",
+  outline: "",
 };
 
 export type ButtonProps = DetailedHTMLProps<
@@ -19,18 +19,26 @@ export type ButtonProps = DetailedHTMLProps<
   HTMLButtonElement
 > & {
   size?: keyof typeof sizeClassNames;
-  colour?: keyof typeof colourClassNames;
+  colour?: keyof typeof variantClassNames;
+  isLoading?: boolean;
+  isDisabled?: boolean;
 };
 
 export const Button = ({
   children,
   size = "medium",
   colour = "primary",
-  className = "",
+  isLoading = false,
+  isDisabled = false,
+  className,
   ...props
 }: ButtonProps) => {
+  let classes = [ButtonStyles["gdui-btn"]];
+  if (className) {
+    classes.push(className);
+  }
   return (
-    <button className={`${className}`} {...props}>
+    <button className={classes.join(" ")} disabled={isDisabled} {...props}>
       {children}
     </button>
   );

@@ -25,10 +25,13 @@ export default [
             },
         ],
         plugins: [
+            external(),
+            typescript(),
             babel({
                 exclude: "node_modules/**",
-                presets: ["@babel/preset-react"],
+                presets: ["@babel/preset-react", '@babel/env'],
                 babelHelpers: "runtime",
+                extensions: [".js", ".ts", ".jsx", ".tsx"],
             }),
             commonjs({
                 ignoreGlobal: false,
@@ -47,9 +50,11 @@ export default [
                     generateScopedName: '[local]',
                 },
             }),
-            external(),
-            resolve(),
-            typescript(),
+            resolve({
+                ignoreGlobal: false,
+                include: ['node_modules/**'],
+                extensions: [".js", ".ts", ".jsx", ".tsx"],
+            }),
             terser(),
             del({ targets: ['dist/*'] }),
         ],

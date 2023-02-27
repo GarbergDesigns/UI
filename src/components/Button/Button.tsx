@@ -2,38 +2,31 @@ import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 // @ts-ignore
 import ButtonStyles from "./Button.module.css";
 
-const sizeClassNames = {
-  small: "",
-  medium: "",
-  large: "",
-};
-
-const variantClassNames = {
-  primary: "",
-  secondary: "",
-  outline: "",
-};
-
 export type ButtonProps = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > & {
-  size?: keyof typeof sizeClassNames;
-  colour?: keyof typeof variantClassNames;
+  size?: 'small' | 'medium' | 'large';
+  variant?: 'primary' | 'secondary' | 'outline';
   isLoading?: boolean;
   isDisabled?: boolean;
 };
 
 export const Button = ({
   children,
+  variant = "primary",
   size = "medium",
-  colour = "primary",
   isLoading = false,
   isDisabled = false,
   className,
   ...props
 }: ButtonProps) => {
   let classes = [ButtonStyles["gdui-btn"]];
+  classes.push(ButtonStyles[`gdui-btn-${variant}`]);
+  classes.push(ButtonStyles[`gdui-btn-${size}`]);
+  if(isLoading) {
+    classes.push(ButtonStyles[`gdui-btn-loading`]);
+  }
   if (className) {
     classes.push(className);
   }

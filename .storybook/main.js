@@ -7,6 +7,10 @@ module.exports = {
         name: "@storybook/react-webpack5",
         options: { fastRefresh: true }
     },
+    "docs": {
+        autodocs: 'tag',
+        defaultName: 'Documentation'
+    },
     webpackFinal: async (config) => {
         config.module.rules.push({
             test: /\.css$/,

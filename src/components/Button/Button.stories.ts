@@ -9,8 +9,8 @@ export default {
         children: 'Button',
         variant: 'primary',
         size: 'medium',
-        isLoading: false,
-        isDisabled: false
+        loading: false,
+        disabled: false
     }
 };
 

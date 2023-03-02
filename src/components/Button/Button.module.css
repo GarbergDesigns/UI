@@ -1,6 +1,5 @@
 .gdui-btn {
-    @apply relative cursor-pointer inline-flex items-center space-x-2 text-center font-semibold outline-none border-none;
-    @apply rounded;
+    @apply relative cursor-pointer inline-flex items-center space-x-2 text-center font-semibold outline-none border-none rounded;
     @apply transition ease-linear delay-75 hover:duration-500 active:scale-50 active:duration-100;
 }
 
@@ -13,7 +12,7 @@
 }
 
 .gdui-btn-outline {
-    @apply bg-transparent border-primary-700 hover:border-primary-600 hover:border-opacity-80 border-solid border-2;
+    @apply bg-transparent border-primary-700 hover:border-primary-600 hover:border-opacity-80 text-black dark:text-white border-solid border-2;
 }
 
 .gdui-btn-small {

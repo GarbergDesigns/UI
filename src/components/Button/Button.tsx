@@ -8,30 +8,29 @@ export type ButtonProps = DetailedHTMLProps<
 > & {
     size?: "small" | "medium" | "large";
     variant?: "primary" | "secondary" | "outline";
-    isLoading?: boolean;
-    isDisabled?: boolean;
+    loading?: boolean;
 };
 
 export const Button = ({
     children,
     variant = "primary",
     size = "medium",
-    isLoading = false,
-    isDisabled = false,
+    loading = false,
+    disabled = false,
     className,
     ...props
 }: ButtonProps) => {
     let classes = [ButtonStyles["gdui-btn"]];
     classes.push(ButtonStyles[`gdui-btn-${variant}`]);
     classes.push(ButtonStyles[`gdui-btn-${size}`]);
-    if (isLoading) {
-        classes.push(ButtonStyles[`gdui-btn-loading`]);
+    if (loading) {
+        classes.push("animate-spin")
     }
     if (className) {
         classes.push(className);
     }
     return (
-        <button className={classes.join(" ")} disabled={isDisabled} {...props}>
+        <button className={classes.join(" ")} disabled={disabled} {...props}>
             {children}
         </button>
     );

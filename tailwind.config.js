@@ -10,6 +10,7 @@ module.exports = {
         primary: colors.neutral,
         secondary: colors.indigo,
         white: colors.white,
+        black: colors.black,
         transparent: colors.transparent,
     }
   },

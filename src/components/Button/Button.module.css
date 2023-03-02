@@ -1,20 +1,19 @@
 .gdui-btn {
-    @apply relative cursor-pointer inline-flex items-center space-x-2 text-center font-semibold transition ease-out duration-200 outline-none border-none;
+    @apply relative cursor-pointer inline-flex items-center space-x-2 text-center font-semibold outline-none border-none;
     @apply rounded;
-    /*font-family: inherit;
-    font-weight: inherit;*/
+    @apply transition ease-linear delay-75 hover:duration-500 active:scale-50 active:duration-100;
 }
 
 .gdui-btn-primary {
-    @apply bg-primary-700 text-white;
+    @apply bg-primary-700  hover:bg-primary-600 text-white;
 }
 
 .gdui-btn-secondary {
-    @apply bg-secondary-700 text-white;
+    @apply bg-secondary-700 hover:bg-secondary-600 text-white;
 }
 
 .gdui-btn-outline {
-    @apply bg-transparent border-primary-700 border-solid border-2;
+    @apply bg-transparent border-primary-700 hover:border-primary-600 hover:border-opacity-80 border-solid border-2;
 }
 
 .gdui-btn-small {
@@ -28,5 +27,3 @@
 .gdui-btn-large {
     @apply px-5 py-2 text-lg font-medium;
 }
-
-.gdui-btn-loading {}

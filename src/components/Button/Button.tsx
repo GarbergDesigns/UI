@@ -2,46 +2,38 @@ import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 // @ts-ignore
 import ButtonStyles from "./Button.module.css";
 
-const sizeClassNames = {
-  small: "",
-  medium: "",
-  large: "",
-};
-
-const variantClassNames = {
-  primary: "",
-  secondary: "",
-  outline: "",
-};
-
 export type ButtonProps = DetailedHTMLProps<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
 > & {
-  size?: keyof typeof sizeClassNames;
-  colour?: keyof typeof variantClassNames;
-  isLoading?: boolean;
-  isDisabled?: boolean;
+    size?: "small" | "medium" | "large";
+    variant?: "primary" | "secondary" | "outline";
+    loading?: boolean;
 };
 
 export const Button = ({
-  children,
-  size = "medium",
-  colour = "primary",
-  isLoading = false,
-  isDisabled = false,
-  className,
-  ...props
+    children,
+    variant = "primary",
+    size = "medium",
+    loading = false,
+    disabled = false,
+    className,
+    ...props
 }: ButtonProps) => {
-  let classes = [ButtonStyles["gdui-btn"]];
-  if (className) {
-    classes.push(className);
-  }
-  return (
-    <button className={classes.join(" ")} disabled={isDisabled} {...props}>
-      {children}
-    </button>
-  );
+    let classes = [ButtonStyles["gdui-btn"]];
+    classes.push(ButtonStyles[`gdui-btn-${variant}`]);
+    classes.push(ButtonStyles[`gdui-btn-${size}`]);
+    if (loading) {
+        classes.push("animate-spin")
+    }
+    if (className) {
+        classes.push(className);
+    }
+    return (
+        <button className={classes.join(" ")} disabled={disabled} {...props}>
+            {children}
+        </button>
+    );
 };
 
 export default Button;
